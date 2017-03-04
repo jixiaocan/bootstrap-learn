@@ -1,0 +1,250 @@
+body {
+    font-family: Roboto, Helvetica, Arial
+}
+/*如果不用Roboto字体，Hi, This is 的粗细就看不出来*/
+
+.row-header {
+	margin: 0px auto;
+	padding: 0px auto;
+}
+
+.row-content {
+	margin: 0px auto;
+	padding: 50px 0px 50px 0px;
+	border-bottom: 1px ridge;
+	min-height: 300px;
+}
+
+.row-footer {
+	background-color: #afafaf;
+	margin: 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.jumbotron {
+	padding: 70px 30px 70px 30px;
+	margin: 0px auto;
+	background: #7986CB;
+	color: floralwhite;
+}
+
+address {
+	font-size: 80%;
+	margin: 0px;
+	color: #0f0f0f;
+}
+
+body{
+	padding: 50px 0px 0px 0px;
+	z-index: 0;
+}
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.affix {
+    top:100px;
+}
+
+.carousel {
+    background:#1A237E;
+}
+.carousel .item {
+  height: 300px;
+}
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+}
+#carouselButtons {
+	right: 0px;
+	position: absolute;
+	bottom: 0px;
+}
+
+
+.modal-title {
+	color: #fff;
+}
+
+.getmetelf {
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	padding: 30px 0;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.modal-header {
+	background-color: #2D3848;
+}
+
+.greynum {
+	float: left;
+	padding-left: 10px;
+	color: rgba(0,0,0,.36);
+	padding-right: 10px;
+}
+
+.myphone {
+    font-size: 27px;
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, .19);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit
+    /*为什么当padding-bottom和margin-bottom都没有的时候，会影响下面Contact hours 的位置？*/
+}
+
+.contacthours {
+	display: table;
+}
+
+.hourcall {
+	font-size: 20px;
+	float: left;
+	width: 40%;
+	padding-top: 10px;
+}
+
+.rightcall {
+	float: right;
+}
+
+.dayscall {
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: 200;
+    color: #868F96;
+    margin-bottom: 0;
+}
+
+.horario {
+    font-size: 20px;
+    font-weight: 500;
+    color: #868F96;
+}
+
+
+.cd-intro {
+	text-align: center;
+    color: #4a148c;
+}
+
+.cd-headline.letters.type {
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.cd-headline.type .cd-words-wrapper {
+    vertical-align: top;
+    overflow: hidden;
+    z-index: 1
+}
+
+.cd-headline.type .cd-words-wrapper.waiting::after {
+    -webkit-animation: cd-pulse 1s infinite;
+    animation: cd-pulse 1s infinite
+}
+
+.cd-headline.type .cd-words-wrapper.selected {
+    background-color: #FFF
+}
+
+.cd-headline.type .cd-words-wrapper.selected::after {
+    visibility: hidden
+}
+
+.cd-headline.type .cd-words-wrapper.selected b {
+    color: #000
+}
+
+.cd-headline.type b {
+    font-weight: 500;
+    visibility: hidden;
+}
+
+.cd-headline.type b.is-visible {
+    visibility: visible;
+}
+
+.cd-headline.type i {
+    position: absolute;
+    visibility: hidden;
+}
+
+.cd-headline.type i.in {
+    position: relative;
+    font-style: normal;
+    visibility: visible;
+}
+
+.cd-headline.type .cd-words-wrapper.selected {
+  background-color: #4a148c;
+}
+.cd-headline.type .cd-words-wrapper.selected b {
+  color: #fff;
+}
+
+.feed {
+    float: left;
+    overflow: hidden;
+    width: 35px;
+    height: 35px;
+    line-height: 100px;
+    color: #fff;
+    background-image: url(../images/sprite.png);
+    background-repeat: no-repeat;
+    /*opacity: .7;*/
+    margin-right: 4px;
+    border-radius: 3px;
+}
+
+.feed-weibo {
+    background-color: #ff5e52;
+    background-position: 5px 6px;
+}
+.feed-weixin {
+    background-color: #4bc916;
+    background-position: -117px 7px;
+}
+.feed-rss {
+    background-color: #f1b305;
+    background-position: -78px 6px;
+}
+.feed-tqq {
+    background-color: #1faeff;
+    background-position: -37px 6px;
+}
+
+
+.rollto {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 999;
+    display: none;
+}
+
+.rollto a {
+    overflow: hidden;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url(../images/backtop.png) no-repeat 0 -52px;
+    text-indent: -999px;
+    opacity: .7;
+    filter: alpha(opacity=70);
+}

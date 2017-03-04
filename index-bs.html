@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <title>simple web</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="styles/mystyles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navbigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Interesting Stuffs</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index-bs.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li><a href="movie-bs.html"><span class="glyphicon glyphicon-film"></span> Movie</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-list"></span> Interest <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Running</a></li>
+                            <li><a href="#">Reading</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li class="dropdown-header">Program</li>
+                            <li><a href="#">Frontend</a></li>
+                            <li><a href="#">Backend</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" data-toggle="modal" data-target="#callmeModal"><span class="glyphicon glyphicon-phone"></span> Contact</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Modal Window Contact me -->
+    <div class="modal fade" id="callmeModal" tabindex="-1" aria-hidden="true" role="dialog" aria-labelledby="ModalCall" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h2 class="modal-title getmetelf" id="ModalCall">Get in touch with me.</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="myphone">
+                        <p class="greynum glyphicon glyphicon-map-marker"></p> Hangzhou</div>
+                    <!-- Your phone number -->
+                    <div class="myphone">
+                        <p class="greynum">+86</p> 187 4567 8901</div>
+                    <!-- Contact hours -->
+                    <div class="contacthours">
+                        <p class="hourcall">Contact hours</p>
+                        <div class="rightcall">
+                            <p class="dayscall">Mon - Fri</p>
+                            <p class="horario">9:00 - 22:00</p>
+                            <p class="dayscall">Sat - Sun</p>
+                            <p class="horario">10:00 - 18:00</p>
+                        </div>
+                    </div>
+                    <!-- // Contact hours -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // Modal Window Contact me -->
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class="col-xs-12 col-sm-10">
+                    <section class="cd-intro">
+                        <h1 class="cd-headline letters type">
+                            <span>Hi, This is</span>
+                            <span class="cd-words-wrapper">
+                                <b class="is-visible">a simple bootstrap web</b>
+                                <b>incredible and amazing</b>
+                                <b>better than the Flash</b>
+                            </span>
+                        </h1>
+                    </section>
+                    <p style="padding:20px"></p>
+                    <p>This is a simple website built with bootstrap. Just do it for fun and to learn bootstrap.</p>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row row-content">
+            <div class="col-xs-12">
+                <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#mycarousel" data-slide-to="1"></li>
+                        <li data-target="#mycarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="images/005.jpg" alt="Hacksaw Ridge" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h2>血战钢锯岭 <span class="label label-danger">Hot</span> <span class="badge">War</span></h2>
+                                <p>WWII American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people, and becomes the first man in American history to receive the Medal of Honor without firing a shot.</p>
+                                <p><a class="btn btn-primary btn-xs" target="blank" href="http://www.imdb.com/title/tt2119532/?ref_=rvi_tt">More &raquo;</a></p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/BeyondFeelings.jpg" alt="Beyond Feelings" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h2>Beyond Feelings <small>A Guide To Critical Thinking</small> <span class="label label-danger">Great</span></h2>
+                                <p>This succinct, interdisciplinary introduction to critical thinking successfully dares students to question their own assumptions and to enlarge their thinking through the analysis of the most common problems associated with everyday reasoning. The text offers a unique and effective organization: Part I explains the fundamental concepts; Part II describes the most common barriers to critical thinking; Part III offers strategies for overcoming those barriers.</p>
+                                <p><a class="btn btn-primary btn-xs" target="blank" href="https://www.amazon.com/Beyond-Feelings-Guide-Critical-Thinking/dp/0078038189/ref=sr_1_1?ie=UTF8&qid=1482135405&sr=8-1&keywords=beyond+feelings">More &raquo;</a></p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/004.jpg" alt="Food" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h2>Who care the name</h2>
+                                <h4>Delicious food</h4>
+                                <p>A beautiful picture taken by my phone.</p>
+                                <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <div class="btn-group" id="carouselButtons">
+                        <button class="btn btn-danger btn-xs" id="carousel-pause">
+                            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-danger btn-xs" id="carousel-play">
+                            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align="center">Movies I have seen</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9  col-sm-pull-3">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#"><img src="images/005.jpg" alt="Hacksaw Ridge" width=110 class="media-object img-thumbnail"></a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">Hacksaw Ridge <span class="label label-danger">Hot</span> <span class="badge">War</span></h2>
+                        <p>WWII American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people, and becomes the first man in American history to receive the Medal of Honor without firing a shot.</p>
+                        <p><a class="btn btn-primary btn-xs" target="blank" href="http://www.imdb.com/title/tt2119532/?ref_=rvi_tt">More &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+                <h3 align="center">This Month's Reading</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <div class="media">
+                    <div class="media-body">
+                        <h2 class="media-heading">Beyond Feelings <small>A Guide To Critical Thinking</small> <span class="label label-danger">Great</span></h2>
+                        <p>This succinct, interdisciplinary introduction to critical thinking successfully dares students to question their own assumptions and to enlarge their thinking through the analysis of the most common problems associated with everyday reasoning. The text offers a unique and effective organization: Part I explains the fundamental concepts; Part II describes the most common barriers to critical thinking; Part III offers strategies for overcoming those barriers.</p>
+                        <p><a class="btn btn-primary btn-xs" target="blank" href="https://www.amazon.com/Beyond-Feelings-Guide-Critical-Thinking/dp/0078038189/ref=sr_1_1?ie=UTF8&qid=1482135405&sr=8-1&keywords=beyond+feelings">More &raquo;</a></p>
+                    </div>
+                    <div class="media-right media-middle">
+                        <a href="#"><img src="images/BeyondFeelings.jpg" alt="Beyond Feelings" width=110 class="media-object img-thumbnail"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3  col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align=center>Delicious Food</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9  col-sm-pull-3">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#"><img src="images/004.jpg" alt="Food" width=150 class="media-object img-thumbnail"></a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">who care the name</h2>
+                        <h4>Just Delicious</h4>
+                        <p>It is taken by my phone.</p>
+                        <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Remind: </strong> Please send a <a href="mailto:jixiaocan@yeah.net" class="alert-link">mail</a> to me if you like.
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="row-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index-bs.html">Home</a></li>
+                        <li><a href="movie-bs.html">Movie</a></li>
+                        <li><a href="" data-toggle="modal" data-target="#callmeModal">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-sm-5">
+                    <h5>My Address</h5>
+                    <address>
+                        Zhejinag Province
+                        <br> Hangzhou
+                        <br>
+                        <i class="glyphicon glyphicon-phone"></i>: +86 187 4567 8901
+                        <br>
+                        <i class="glyphicon glyphicon-envelope"></i>: <a href="mailto:jixiaocan@yeah.net">jixiaocan@yeah.net</a>
+                    </address>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="nav navbar-nav" style="padding: 40px 10px;">
+                        <!--  <a class="btn btn-social-icon btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a> -->
+                        <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/flykyle" title="" target="_blank" data-original-title="关注微博">微博</a>
+                        <a class="feed feed-weixin" rel="external nofollow" href="javascript:;" title="" data-content="<img src='images/weixin.jpg' width=129px>" data-original-title="关注“勤思好学”">微信</a>
+                        <a class="feed feed-rss" rel="external nofollow" href="" title="" target="" data-original-title="Feed订阅">订阅</a>
+                        <a class="feed feed-tqq" rel="external nofollow" href="" title="" target="" data-original-title="关注腾讯微博">腾讯微博</a>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <p style="padding:10px;"></p>
+                    <p align=center>Coursera © Copyright 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/custom.js"></script>
+    <!-- "Hi. I'am..." Text type - Resource jQuery -->
+    <script src="scripts/letter.js"></script>
+    <!-- <script src="script/custom_new.js"></script> -->
+</body>
+
+</html>

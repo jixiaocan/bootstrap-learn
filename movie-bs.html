@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <title>simple web</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="styles/mystyles.css">
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="200">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navbigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Interesting Stuffs</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index-bs.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li class="active"><a href="movie-bs.html"><span class="glyphicon glyphicon-film"></span> Movie</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-list"></span> Interest <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Running</a></li>
+                            <li><a href="#">Reading</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li class="dropdown-header">Program</li>
+                            <li><a href="#">Frontend</a></li>
+                            <li><a href="#">Backend</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" data-toggle="modal" data-target="#callmeModal"><span class="glyphicon glyphicon-phone"></span> Contact</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Modal Window Contact me -->
+    <div class="modal fade" id="callmeModal" tabindex="-1" aria-hidden="true" role="dialog" aria-labelledby="ModalCall" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h2 class="modal-title getmetelf" id="ModalCall">Get in touch with me.</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="myphone">
+                        <p class="greynum glyphicon glyphicon-map-marker"></p> Hangzhou</div>
+                    <!-- Your phone number -->
+                    <div class="myphone">
+                        <p class="greynum">+86</p> 187 4567 8901</div>
+                    <!-- Contact hours -->
+                    <div class="contacthours">
+                        <p class="hourcall">Contact hours</p>
+                        <div class="rightcall">
+                            <p class="dayscall">Mon - Fri</p>
+                            <p class="horario">9:00 - 22:00</p>
+                            <p class="dayscall">Sat - Sun</p>
+                            <p class="horario">10:00 - 18:00</p>
+                        </div>
+                    </div>
+                    <!-- // Contact hours -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // Modal Window Contact me -->
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class="col-xs-12 col-sm-10">
+                    <h1>Interesting Movies</h1>
+                    <p>This is a simple website built with bootstrap. Just do it for fun and to learn bootstrap.</p>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <p style="padding:40px;"></p>
+                    <a type="button" data-target="#addMovie" class="btn btn-warning btn-block" data-toggle="modal">Add Movie</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- add movie modal -->
+    <div id="addMovie" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add a new Movie</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="moviename" class="col-sm-3 control-label">Movie Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="moviename" name="moviename" placeholder="Movie Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tag" class="col-sm-3 control-label">Tag</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="tag" name="tag" placeholder="Tag">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Rating</label>
+                            <div class="col-sm-8">
+                                <label class="radio-inline">
+                                    <input type="radio" name="rating" value="1"> 1
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="rating" value="2"> 2
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="rating" value="3"> 3
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="rating" value="4"> 4
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="rating" value="5"> 5
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment" class="col-sm-3 control-label">Comment</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" name="comment" id="comment" rows="8"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-8">
+                                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="index-bs.html">Home</a></li>
+                            <li class="active">Movie</li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-12">
+                        <h3>Movie</h3>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row row-content" id="film">
+                    <div class="col-xs-12 col-sm-6 col-lg-8">
+                        <h2>Film</h2>
+                        <p>A film, also called a movie, motion picture, theatrical film or photoplay, is a series of still images which, when shown on a screen, creates the illusion of moving images due to the phi phenomenon. This optical illusion causes the audience to perceive continuous motion between separate objects viewed rapidly in succession. The process of filmmaking is both an art and an industry. A film is created by photographing actual scenes with a motion picture camera; by photographing drawings or miniature models using traditional animation techniques; by means of CGI and computer animation; or by a combination of some or all of these techniques and other visual effects.</p>
+                        <div class="well">
+                            <blockquote>
+                                <p>Some relationships start with fights... But, usually only in romantic comedies. Life's not the movies.</p>
+                                <footer>Takayuki Ikkaku, Arisa Hosaka and Toshihiro Kawabata,
+                                    <cite>Animal Crossing: Wild World, 2005</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">To Watch List</h3>
+                            </div>
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>从你的全世界路过</dt>
+                                    <dd>96min</dd>
+                                    <dt>驴得水</dt>
+                                    <dd>110min</dd>
+                                    <dt>萨利机长 Sully</dt>
+                                    <dd>98min</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-content" id="favorite">
+                    <div class="col-xs-12">
+                        <h2>Favorite Movies</h2>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#shawshank" aria-controls="shawshank" role="tab" data-toggle="tab">The Shawshank Redemption</a>
+                            </li>
+                            <li role="presentation"><a href="#hacksawRidge" aria-controls="hacksawRidge" role="tab" data-toggle="tab">Hacksaw Ridge</a></li>
+                            <li role="presentation"><a href="#zootopia" aria-controls="zootopia" role="tab" data-toggle="tab">Zootopia</a></li>
+                            <li role="presentation"><a href="#godFather" aria-controls="godFather" role="tab" data-toggle="tab">The Godfather</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" role="tabpanel" id="shawshank">
+                                <div class="media">
+                                    <div class="media-left media-middle">
+                                        <a href="#"><img src="images/001.jpg" alt="肖申克的救赎" width=110 class="media-object img-thumbnail"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h2 class="media-heading">肖申克的救赎 <small>1994</small> <span class="badge">Drama</span></h2>
+                                        <p>The Shawshank Redemption is a 1994 American drama film written and directed by Frank Darabont, and starring Tim Robbins and Morgan Freeman. Adapted from the Stephen King novella Rita Hayworth and Shawshank Redemption, the film tells the story of Andy Dufresne, a banker who is sentenced to life in Shawshank State Penitentiary for the murder of his wife and her lover, despite his claims of innocence. During his time at the prison, he befriends a fellow inmate, Ellis Boyd "Red" Redding, and finds himself protected by the guards after the warden begins using him in his money-laundering operation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="hacksawRidge">
+                                <div class="media">
+                                    <div class="media-left media-middle">
+                                        <a href="#"><img src="images/005.jpg" alt="Hacksaw Ridge" width=110 class="media-object img-thumbnail"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h2 class="media-heading">血战钢锯岭 <small>2016</small> <span class="badge">War</span></h2>
+                                        <p>Hacksaw Ridge is a 2016 biographical war film about the World War II experiences of Desmond Doss, an American pacificist combat medic who was a Seventh-day Adventist Christian, refusing to carry or use a firearm or weapons of any kind. Doss became the first conscientious objector to be awarded the Medal of Honor, for service above and beyond the call of duty.</p>
+                                        <p>The film was directed by Mel Gibson and written by Andrew Knight and Robert Schenkkan, based on an earlier documentary about Doss. The film stars Andrew Garfield, Sam Worthington, Luke Bracey, Teresa Palmer, Hugo Weaving, Rachel Griffiths and Vince Vaughn. It was released in the United States on November 4, 2016, has received positive reviews, gained or been nominated for numerous awards, and grossed $102 million worldwide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="zootopia">
+                                <div class="media">
+                                    <div class="media-left media-middle">
+                                        <a href="#"><img src="images/002.jpg" alt="疯狂动物城" width=110 class="media-object img-thumbnail"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h2 class="media-heading">疯狂动物城 <small>2016</small> <span class="badge">Disney</span></h2>
+                                        <p>Zootopia is a 2016 American 3D computer-animated comedy-adventure film produced by Walt Disney Animation Studios and released by Walt Disney Pictures. It is the 55th Disney animated feature film. The film is directed by Byron Howard and Rich Moore, co-directed by Jared Bush, and starring the voices of Ginnifer Goodwin, Jason Bateman, Idris Elba, Jenny Slate, Nate Torrence, Bonnie Hunt, Don Lake, Tommy Chong, J. K. Simmons, Octavia Spencer, Alan Tudyk, and Shakira. The film details the unlikely partnership between a rabbit police officer and a red fox con artist as they uncover a conspiracy which involves the disappearance of predator inhabitants of a mammalian metropolis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="godFather">
+                                <div class="media">
+                                    <div class="media-left media-middle">
+                                        <a href="#"><img src="images/003.jpg" alt="教父" width=110 class="media-object img-thumbnail"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h2 class="media-heading">教父 <small>1972</small> <span class="badge">Crime</span></h2>
+                                        <p>The Godfather is a 1972 American crime drama directed by Francis Ford Coppola and produced by Albert S. Ruddy, based on Mario Puzo's best-selling novel of the same name. It stars Marlon Brando and Al Pacino as the leaders of a fictional New York crime family. The story, spanning 1945 to 1955, chronicles the family under the patriarch Vito Corleone, focusing on the transformation of Michael Corleone (Pacino) from reluctant family outsider to ruthless Mafia boss.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- This month watch record -->
+                <div class="row row-content" id="thisMonth">
+                    <div class="col-xs-12">
+                        <h2>This month watched list</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>Country</th>
+                                    <th>Genres</th>
+                                    <th>Runtime</th>
+                                    <th>Release Date</th>
+                                    <th>Watch Date</th>
+                                </tr>
+                                <tr>
+                                    <td>Hacksaw Ridge</td>
+                                    <td>USA</td>
+                                    <td>History | War</td>
+                                    <td>139 min</td>
+                                    <td>8 December 2016</td>
+                                    <td>8 December</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://www.imdb.com/title/tt2381249/?ref_=fn_al_tt_1">Mission: Impossible - Rogue Nation</a></td>
+                                    <td>USA</td>
+                                    <td>Action | Adventure</td>
+                                    <td>131 min</td>
+                                    <td>8 September 2015</td>
+                                    <td>15 December</td>
+                                </tr>
+                                <tr>
+                                    <td>踏血寻梅</td>
+                                    <td>HongKong</td>
+                                    <td>Thriller</td>
+                                    <td>120min</td>
+                                    <td>3 December 2015</td>
+                                    <td>23 December</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="hidden-xs col-sm-2" id="myScrollspy">
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="200">
+                    <li><a href="#film">Film Introduction</a></li>
+                    <li><a href="#favorite">Favorite Movies</a></li>
+                    <li><a href="#thisMonth">Watched list</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <footer class="row-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index-bs.html">Home</a></li>
+                        <li><a href="movie-bs.html">Movie</a></li>
+                        <li><a href="" data-toggle="modal" data-target="#callmeModal">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-sm-5">
+                    <h5>My Address</h5>
+                    <address>
+                        Zhejinag University of Science and Technology
+                        <br> Hangzhou
+                        <br>
+                        <i class="glyphicon glyphicon-phone"></i>: +86 187 4567 8901
+                        <br>
+                        <i class="glyphicon glyphicon-envelope"></i>: <a href="mailto:jixiaocan@yeah.net">jixiaocan@yeah.net</a>
+                    </address>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="nav navbar-nav" style="padding: 40px 10px;">
+                        <!--  <a class="btn btn-social-icon btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a> -->
+                        <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/flykyle" title="" target="_blank" data-original-title="关注微博">微博</a>
+                        <a class="feed feed-weixin" rel="external nofollow" href="javascript:;" title="" data-content="<img src='images/weixin.jpg' width=129px>" data-original-title="关注“勤思好学”">微信</a>
+                        <a class="feed feed-rss" rel="external nofollow" href="" title="" target="" data-original-title="Feed订阅">订阅</a>
+                        <a class="feed feed-tqq" rel="external nofollow" href="" title="" target="" data-original-title="关注腾讯微博">腾讯微博</a>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <p style="padding:10px;"></p>
+                    <p align=center>Coursera © Copyright 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/custom.js"></script>
+</body>
+
+</html>
