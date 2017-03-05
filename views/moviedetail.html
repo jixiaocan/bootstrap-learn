@@ -5,7 +5,7 @@
                 <button class="btn btn-xs btn-primary pull-right" type="button" ui-sref="app.movie">Back to Menu</button>
                 <div class="media">
                     <div class="media-left">
-                        <a href="#"><img class="media-object img-thumbnail" ng-src="{{movie.image}}" alt="海报" width="150px"></a>
+                        <img style="cursor: pointer" class="movie-img media-object img-thumbnail" ng-src="{{movie.image}}" alt="海报" width="150px">
                     </div>
                     <div class="media-body">
                         <h2 class="media-heading">{{movie.name}}
@@ -75,3 +75,32 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(".movie-img").click(function(){
+
+            var span = document.createElement("span");
+            span.className = "close-x";
+            span.appendChild(document.createTextNode("X"));
+
+            var img = document.createElement("img");
+            img.className = "img-thumbnail";
+            img.src = $(".movie-img")[0].src;
+
+            var div = document.createElement("div");
+            div.className = "full-image";
+
+            div.appendChild(img);
+            div.appendChild(span);
+
+            $(this).parent().append(div);
+
+            $(".close-x").click(function(){
+                console.log("click");
+                $(".full-image").remove();
+            });
+        });
+
+
+
+    </script>
