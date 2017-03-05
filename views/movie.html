@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row row-content" ng-controller="MovieController">
+        <div class="col-xs-12">
+            <button class="btn btn-xs btn-primary pull-right" ng-click="toggleDetails()" type="button">
+                {{showDetails ? 'Hide Details':'Show Details'}}
+            </button>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" ng-class="{active:isSelected(1)}">
+                    <a ng-click="select(1)" aria-controls="all movies" role="tab">All Movies</a>
+                </li>
+                <li role="presentation" ng-class="{active:isSelected(2)}">
+                    <a ng-click="select(2)" aria-controls="Hot" role="tab">Hot</a>
+                </li>
+                <li role="presentation" ng-class="{active:isSelected(3)}">
+                    <a ng-click="select(3)" aria-controls="New" role="tab">New</a>
+                </li>
+                <li role="presentation" ng-class="{active:isSelected(4)}">
+                    <a ng-click="select(4)" aria-controls="Watched" role="tab">Watched</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <ul class="media-list tab-pane fade in active">
+                    <li class="media" ng-repeat="movie in movies | filter: filtText">
+                        <div class="media-left media-middle">
+                        <!-- 用ng-href为什么就不行了？？ -->
+                            <!-- <a href="#/menu/{{dish._id}}"> -->
+                            <a ui-sref="app.moviedetails({id:movie._id})">
+                                <img ng-src="{{movie.image}}" alt="海报" class="media-object img-thumbnail" width="120px">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h2 class="media-heading">{{movie.name}}
+                                    <span class="label label-primary">{{movie.label}}</span>
+                                    <span class="badge">{{movie.year}}</span>
+                                </h2><br>
+                            <p ng-show="showDetails">{{movie.description}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

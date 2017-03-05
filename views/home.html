@@ -1,0 +1,68 @@
+
+
+    <div class="container" ng-controller="IndexController">
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align='center'>Watched Movie</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+				<div class="media">
+                    <div class="media-left media-middle">
+                        <a href="">
+                            <img ng-src="{{wachedmovie.image}}" class="media-object img-thumbnail" width="150px">
+                        </a>
+                    </div>            
+                    <div class="media-body">
+                        <h2 class="media-heading">{{wachedmovie.name}} <span class="label label-danger">{{wachedmovie.label}}</span> <span class="badge">{{wachedmovie.year}}</span></h2><br>
+                        <p>{{wachedmovie.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+                <h3 align=center>Released Movie</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <!-- <div ng-if="!showDish">
+                    <h3>{{message}} </h3>
+                </div> -->
+				<div class="media">       
+                    <div class="media-body">
+                        <h2 class="media-heading">{{releasedmovie.name}} <span class="label label-primary">New</span> <span class="badge">{{releasedmovie.year}}</span></h2><br>
+                        <p>{{releasedmovie.description}}</p>
+                    </div>
+                    <div class="media-right media-middle">
+                        <a href="">
+                            <img ng-src="{{releasedmovie.image}}" class="media-object img-thumbnail" width="150px">
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align=center>Famous Actor</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+				<div class="media">
+                    <div class="media-left media-middle">
+                        <a href="">
+                            <img ng-src="{{actor.image}}" class="media-object img-thumbnail" width="150px">
+                        </a>
+                    </div>            
+                    <div class="media-body">
+                        <h2 class="media-heading">{{actor.name}}</h2><br>
+                        <p>{{actor.description}}</p>
+                        <blockquote><small ng-repeat="movie in actor.movies">{{movie}}</small></blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

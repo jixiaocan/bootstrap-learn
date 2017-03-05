@@ -1,0 +1,62 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container" ng-controller="HeadController">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">Interesting Stuff</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active:isSelected(1)}">
+                <!-- use ui-sref -->
+                    <a ng-click="select(1)" ui-sref="app">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
+                </li>
+                <li ng-class="{active:isSelected(2)}">
+                    <a ng-click="select(2)" ui-sref="app.movie">
+                        <span class="glyphicon glyphicon-film"></span> Movie
+                    </a>
+                </li>
+                <li ng-class="{active:isSelected(3)}">
+                    <a ng-click="select(3)" ui-sref="app.actor">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Actor</a>
+                </li>
+                
+                <li ng-class="{active:isSelected(4)}">
+                    <a ng-click="select(4)" ui-sref="app.contact">
+                        <span class="glyphicon glyphicon-phone"></span> Contact</a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<header class="jumbotron">
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-xs-12 col-sm-8">
+                <h1>BootStrap and AngularJS</h1>
+                <p style="padding:40px;"></p>
+                <p>This is a simple website built with bootstrap and angularjs. Just do it for fun and to learn bootstrap.</p>
+            </div>
+            <div class="col-xs-12 col-sm-2">
+                <p style="padding:20px;"></p>
+            </div>
+            <div class="col-xs-12 col-sm-2">
+            </div>
+        </div>
+    </div>
+</header>

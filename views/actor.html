@@ -1,0 +1,74 @@
+
+
+    <div class="container" ng-controller="ActorController">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a ui-sref="app">Home</a></li>
+                   <li class="active">Actor</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Some Actors</h3>
+               <hr>
+            </div>
+        </div>
+        
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-8">
+                <h2>Performance Art</h2>
+                <p>It's totally acceptable to walk away from a performance. If it's not engaging, not doing what it's supposed to, it's completely OK to walk out from it, just like any piece of art. People walk by art in a museum all the time that doesn't touch them, and they stop and spend time with the ones that do, and performance art should be treated the same way.</p>
+                <div class="well">
+                    <blockquote>
+                        <p>Tomorrow night I'm giving a lecture on silence and invisibility. Don't be surprised if I don't show up.</p>
+                        <footer>JAROD KINTZ,
+                            <cite>Seriously Delirious, But Not All Serious</cite>
+                        </footer>
+                    </blockquote>              
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">To Watch List</h3>
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>爱在黎明破晓前</dt>
+                            <dd>爱情，105min</dd>
+                            <dt>驴得水</dt>
+                            <dd>舞台剧改编，110min</dd>
+                            <dt>萨利机长 Sully</dt>
+                            <dd>true story，98min</dd>
+                            <dt>降临</dt>
+                            <dd>科幻，1h50min</dd>
+                       </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-9">
+                <h2>Corporate Leadership</h2>
+               <ul class="media-list">
+                    <li class="media" ng-repeat="actor in actors">
+                        <div class="media-left">
+                            <a href=""><img class="media-object img-thumbnail" ng-src="{{actor.image}}" alt="" width="120px"></a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">{{actor.name}}</h3>
+                            <p>{{actor.description}}</p>
+                        </div>
+                    </li>               
+               </ul>
+
+            </div>
+             <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+            </div>
+        </div>
+         
+    </div>
