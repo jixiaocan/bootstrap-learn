@@ -1,6 +1,9 @@
 <div class="container">
     <div class="row row-content" ng-controller="MovieController">
-        <div class="col-xs-12">
+        <div class="col-xs-12" ng-if="!showMovies">
+            <h3>{{message}}</h3>
+        </div>
+        <div class="col-xs-12" ng-if="showMovies">
             <button class="btn btn-xs btn-primary pull-right" ng-click="toggleDetails()" type="button">
                 {{showDetails ? 'Hide Details':'Show Details'}}
             </button>
@@ -24,7 +27,7 @@
                         <div class="media-left media-middle">
                         <!-- 用ng-href为什么就不行了？？ -->
                             <!-- <a href="#/menu/{{dish._id}}"> -->
-                            <a ui-sref="app.moviedetails({id:movie._id})">
+                            <a ui-sref="app.moviedetails({id:movie.id})">
                                 <img ng-src="{{movie.image}}" alt="海报" class="media-object img-thumbnail" width="120px">
                             </a>
                         </div>

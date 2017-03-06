@@ -17,6 +17,7 @@ angular.module('myApp', ['ui.router'])
                 views:{
                     'content@':{
                         templateUrl:'views/actor.html',
+                        controller:'ActorController'
                     }
                 }
             })

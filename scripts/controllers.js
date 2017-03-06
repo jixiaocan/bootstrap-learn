@@ -1,32 +1,40 @@
 // 为啥删除了方括号？？？
 angular.module('myApp')
-.controller('MovieController', ['$scope','movieService', function($scope, movieService) {
-    $scope.tab = 1;
-    $scope.select = function(setTab) {
-        $scope.tab = setTab;
+    .controller('MovieController', ['$scope', 'movieService', function($scope, movieService) {
+        $scope.tab = 1;
+        $scope.select = function(setTab) {
+            $scope.tab = setTab;
 
-        if (setTab === 2)
-            $scope.filtText = {label:"Hot"};
-        else if (setTab === 3)
-            $scope.filtText = {label:"New"};
-        else if (setTab === 4)
-            $scope.filtText = {watch: true};
-        else
-            $scope.filtText = {};
-    };
-    $scope.isSelected = function(checkTab) {
-        return ($scope.tab === checkTab);
-    };
-    $scope.filtText = {};
-    
-    $scope.movies = movieService.getMovies();
+            if (setTab === 2)
+                $scope.filtText = { label: "Hot" };
+            else if (setTab === 3)
+                $scope.filtText = { label: "New" };
+            else if (setTab === 4)
+                $scope.filtText = { watch: true };
+            else
+                $scope.filtText = {};
+        };
+        $scope.isSelected = function(checkTab) {
+            return ($scope.tab === checkTab);
+        };
+        $scope.filtText = {};
 
-    $scope.showDetails = true;
-    
-    $scope.toggleDetails = function() {
-        $scope.showDetails = !$scope.showDetails;
-    };
-}])
+        $scope.showMovies = false;
+        $scope.message = "Loading...";
+        $scope.movies = [];
+        movieService.getMovies().then(function(response) {
+            $scope.movies = response.data;
+            $scope.showMovies = true;
+        }, function(response) {
+            $scope.message = "Error: " + response.status + " " + response.statusText;
+        });
+
+        $scope.showDetails = true;
+
+        $scope.toggleDetails = function() {
+            $scope.showDetails = !$scope.showDetails;
+        };
+    }])
 
 .controller('ContactController', ['$scope', function($scope) {
     $scope.feedback = { mychannel: "", firstname: "", lastname: "", agree: false, email: "" };
@@ -52,12 +60,20 @@ angular.module('myApp')
     };
 }])
 
-.controller('MovieDetailController', ['$scope','$stateParams','movieService', function($scope,$stateParams,movieService) {
+.controller('MovieDetailController', ['$scope', '$stateParams', 'movieService', function($scope, $stateParams, movieService) {
 
     // ngRoute use $routeParams instead of $stateParams
     // $scope.movie = movieService.getMovie(3);
-    var movie = movieService.getMovie(parseInt($stateParams.id,10));
-    $scope.movie = movie;
+    $scope.movie = {};
+    $scope.showMovie = false;
+    $scope.message = "Loading...";
+
+    movieService.getMovie(parseInt($stateParams.id, 10)).then(function(response){
+        $scope.movie = response.data;
+        $scope.showMovie = true;
+    },function(response){
+        $scope.message = "Error: " + response.status + " " + response.statusText;
+    });
 }])
 
 .controller('MovieCommentController', ['$scope', function($scope) {
@@ -83,22 +99,43 @@ angular.module('myApp')
     };
 }])
 
-.controller('IndexController',['$scope','$filter','movieService','actorService',function($scope,$filter,movieService,actorService){
-    var movies = movieService.getMovies();
-    $scope.movies = movies;
+.controller('IndexController', ['$scope', '$filter', 'movieService', 'actorService', function($scope, $filter, movieService, actorService) {
+    $scope.showMovie = false;
+    $scope.message = "Loading...";
+    $scope.movies = [];
+    movieService.getMovies().then(function(response) {
+        $scope.movies = response.data;
+        $scope.showMovie = true;
 
-    $scope.wachedmovie = $filter('orderBy')(movies,['date'],true)[0];
+        $scope.wachedmovie = $filter('orderBy')($scope.movies, ['date'], true)[0];
+        $scope.releasedmovie = $filter('filter')($scope.movies, { date: "", label: "New" })[0];
+    }, function(response) {
+        $scope.message = "Error: " + response.status + " " + response.statusText;
+    });
 
-    $scope.releasedmovie = $filter('filter')(movies,{date:"",label:"New"})[0];
-
-    $scope.actor = actorService.getActor(1);
+    $scope.actor = {};
+    $scope.showActor = false;
+    $scope.messageActor = "Loading...";
+    actorService.getActor(1).then(function(response){
+        $scope.actor = response.data;
+        $scope.showActor = true;
+    },function(response){
+        $scope.messageActor = "Error: " + response.status + " " + response.statusText;
+    });
 }])
 
-.controller('ActorController',['$scope','actorService',function($scope, actorService){
-    $scope.actors = actorService.getActors();
+.controller('ActorController', ['$scope', 'actorService', function($scope, actorService) {
+    $scope.actors = [];
+    $scope.showActors = false;
+    actorService.getActors().then(function(response){
+        $scope.actors = response.data;
+        $scope.showActors = true;
+    },function(response){
+        $scope.message = "Error: " + response.status + " " + response.statusText;
+    });
 }])
 
-.controller("HeadController",["$scope",function($scope){
+.controller("HeadController", ["$scope", function($scope) {
     $scope.tab = 1;
     $scope.select = function(setTab) {
         $scope.tab = setTab;
@@ -106,5 +143,4 @@ angular.module('myApp')
     $scope.isSelected = function(checkTab) {
         return ($scope.tab === checkTab);
     };
-}])
-;
+}]);

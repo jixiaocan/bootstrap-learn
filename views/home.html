@@ -7,7 +7,10 @@
                 <h3 align='center'>Watched Movie</h3>
             </div>
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-				<div class="media">
+				<div class="col-xs-12" ng-if="!showMovie">
+                    <h3>{{message}}</h3>
+                </div>
+                <div class="media" ng-if="showMovie">
                     <div class="media-left media-middle">
                         <a href="">
                             <img ng-src="{{wachedmovie.image}}" class="media-object img-thumbnail" width="150px">
@@ -28,12 +31,12 @@
                 <h3 align=center>Released Movie</h3>
             </div>
             <div class="col-xs-12 col-sm-9">
-                <!-- <div ng-if="!showDish">
-                    <h3>{{message}} </h3>
-                </div> -->
-				<div class="media">       
+                <div class="col-xs-12" ng-if="!showMovie">
+                    <h3>{{message}}</h3>
+                </div>
+                <div class="media" ng-if="showMovie">      
                     <div class="media-body">
-                        <h2 class="media-heading">{{releasedmovie.name}} <span class="label label-primary">New</span> <span class="badge">{{releasedmovie.year}}</span></h2><br>
+                        <h2 class="media-heading">{{releasedmovie.name}} <span class="label label-primary">{{releasedmovie.label}}</span> <span class="badge">{{releasedmovie.year}}</span></h2><br>
                         <p>{{releasedmovie.description}}</p>
                     </div>
                     <div class="media-right media-middle">
@@ -51,7 +54,10 @@
                 <h3 align=center>Famous Actor</h3>
             </div>
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-				<div class="media">
+				<div class="col-xs-12" ng-if="!showActor">
+                    <h3>{{messageActor}}</h3>
+                </div>
+                <div class="media" ng-if="showActor">
                     <div class="media-left media-middle">
                         <a href="">
                             <img ng-src="{{actor.image}}" class="media-object img-thumbnail" width="150px">
