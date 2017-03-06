@@ -21,11 +21,10 @@ angular.module('myApp')
 
         $scope.showMovies = false;
         $scope.message = "Loading...";
-        $scope.movies = [];
-        movieService.getMovies().then(function(response) {
-            $scope.movies = response.data;
+        movieService.getMovies().query(function(response){
+            $scope.movies = response;
             $scope.showMovies = true;
-        }, function(response) {
+        },function(response){
             $scope.message = "Error: " + response.status + " " + response.statusText;
         });
 
@@ -64,37 +63,28 @@ angular.module('myApp')
 
     // ngRoute use $routeParams instead of $stateParams
     // $scope.movie = movieService.getMovie(3);
-    $scope.movie = {};
+    
     $scope.showMovie = false;
     $scope.message = "Loading...";
 
-    movieService.getMovie(parseInt($stateParams.id, 10)).then(function(response){
-        $scope.movie = response.data;
-        $scope.showMovie = true;
-    },function(response){
-        $scope.message = "Error: " + response.status + " " + response.statusText;
-    });
+    $scope.movie = movieService.getMovies().get({id:parseInt($stateParams.id, 10)})
+        .$promise.then(function(response){
+            $scope.movie = response;
+            $scope.showMovie = true;
+        },function(response){
+            $scope.message = "Error: " + response.status + " " + response.statusText;
+        });
 }])
 
-.controller('MovieCommentController', ['$scope', function($scope) {
-    //Step 1: Create a JavaScript object to hold the comment from the form
+.controller('MovieCommentController', ['$scope','movieService', function($scope,movieService) {
     $scope.mycomment = { author: "", rating: "5", comment: "", date: "" };
 
     $scope.submitComment = function() {
-        console.log($scope.mycomment);
-
-        //Step 2: This is how you record the date
         $scope.mycomment.date = new Date().toISOString();
-        // "The date property of your JavaScript object holding the comment" = new Date().toISOString();
-
-        // Step 3: Push your comment into the dish's comment array
         $scope.movie.comments.push($scope.mycomment);
-
-        //Step 4: reset your form to pristine
+        movieService.getMovies().update({id:$scope.movie.id},$scope.movie);
 
         $scope.commentForm.$setPristine();
-
-        //Step 5: reset your JavaScript object that holds your comment
         $scope.mycomment = { author: "", rating: 5, comment: "", date: "" };
     };
 }])
@@ -102,17 +92,17 @@ angular.module('myApp')
 .controller('IndexController', ['$scope', '$filter', 'movieService', 'actorService', function($scope, $filter, movieService, actorService) {
     $scope.showMovie = false;
     $scope.message = "Loading...";
-    $scope.movies = [];
-    movieService.getMovies().then(function(response) {
-        $scope.movies = response.data;
-        $scope.showMovie = true;
 
-        $scope.wachedmovie = $filter('orderBy')($scope.movies, ['date'], true)[0];
-        $scope.releasedmovie = $filter('filter')($scope.movies, { date: "", label: "New" })[0];
-    }, function(response) {
-        $scope.message = "Error: " + response.status + " " + response.statusText;
-    });
-
+    movieService.getMovies().query(function(response){
+            $scope.movies = response;
+            $scope.showMovie = true;
+            $scope.wachedmovie = $filter('orderBy')($scope.movies, ['date'], true)[0];
+            $scope.releasedmovie = $filter('filter')($scope.movies, { date: "", label: "New" })[0];
+        },function(response){
+            $scope.message = "Error: " + response.status + " " + response.statusText;
+        });
+    
+    
     $scope.actor = {};
     $scope.showActor = false;
     $scope.messageActor = "Loading...";
