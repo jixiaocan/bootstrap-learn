@@ -127,12 +127,36 @@ angular.module('myApp')
 .controller('ActorController', ['$scope', 'actorService', function($scope, actorService) {
     $scope.actors = [];
     $scope.showActors = false;
+    $scope.message = "Loading...";
     actorService.getActors().then(function(response){
         $scope.actors = response.data;
         $scope.showActors = true;
     },function(response){
         $scope.message = "Error: " + response.status + " " + response.statusText;
     });
+
+    $scope.bigPic = function($event){
+        console.log("clicked!");
+        var span = document.createElement("span");
+        span.className = "close-x";
+        span.appendChild(document.createTextNode("X"));
+
+        var img = document.createElement("img");
+        img.className = "img-thumbnail";
+        img.src = $($event.target)[0].src;
+
+        var div = document.createElement("div");
+        div.className = "full-image";
+
+        div.appendChild(img);
+        div.appendChild(span);
+
+        $($event.target).parent().append(div);
+
+        $(".close-x").click(function() {
+            $(".full-image").remove();
+        });
+    };
 }])
 
 .controller("HeadController", ["$scope", function($scope) {

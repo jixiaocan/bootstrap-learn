@@ -47,11 +47,14 @@
     <div class="row row-content">
         <div class="col-xs-12 col-sm-9">
             <h2>Famous Actors</h2>
-            <ul class="media-list">
-                <img class="movie-img media-object img-thumbnail" ng-src="{{actors[0].image}}" alt="ActorImage" width="120px">
+            <div class="col-xs-12" ng-if="!showActors">
+                <h3>{{message}}</h3>
+            </div>
+            <ul class="media-list" ng-if="showActors">
                 <li class="media" ng-repeat="actor in actors">
                     <div class="media-left">
-                        <img class="movie-img media-object img-thumbnail" ng-src="{{actor.image}}" alt="ActorImage" width="120px">
+                    <!-- ng-click="bigPic($event)"  -->
+                        <img  class="movie-img media-object img-thumbnail" ng-src="{{actor.image}}" alt="ActorImage" width="120px">
                     </div>
                     <div class="media-body">
                         <h3 class="media-heading">{{actor.name}}</h3>
@@ -65,28 +68,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-$(".movie-img").click(function() {
-    console.log("clicked!");
-    var span = document.createElement("span");
-    span.className = "close-x";
-    span.appendChild(document.createTextNode("X"));
-
-    var img = document.createElement("img");
-    img.className = "img-thumbnail";
-    img.src = $(".movie-img")[0].src;
-
-    var div = document.createElement("div");
-    div.className = "full-image";
-
-    div.appendChild(img);
-    div.appendChild(span);
-
-    $(this).parent().append(div);
-
-    $(".close-x").click(function() {
-        $(".full-image").remove();
-    });
-});
-</script>
